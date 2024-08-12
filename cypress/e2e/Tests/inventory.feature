@@ -34,12 +34,21 @@ Feature: Inventory page
         And A user removes Onesie to cart
         And A user removes All The Things T Shirt to cart
         Then Shopping cart has none items inside
-    Scenario: Inventory items can be sorted by price, high-to-low, and the sorting is correct
-       
-    Scenario: Ensure that inventory can be sorted by name, Z-to-A, and the sorting is correct    
+
+    Scenario: Sort inventory items by price high to low
+        When I sort the inventory items by price high to low
+        Then the items should be correctly sorted by price in descending order
+
+    Scenario: Sort inventory items by name Z to A
+        When I sort the inventory items by name Z to A
+        Then the items should be correctly sorted by name in descending order
+
     Scenario:  Complete the purchase/checkout process
         When A user adds Backpack to cart
         And A user adds Bike Light to cart
         And A user Opens the Shopping cart
         And A user clicks checkout link
+        And I fill in the checkout information
+        And I complete the purchase
+        Then I should see the order confirmation
         

@@ -1,5 +1,5 @@
 import { Given, When, Then, And } from 'cypress-cucumber-preprocessor/steps';
-import {loginPage} from '../../pages/LoginPage.cy.js'
+import {loginPage} from '../../pages/LoginPage.cy.js';
 
 Given("A web browser is at the saucelabs login page", () => {
   cy.visit("https://www.saucedemo.com/");
@@ -22,7 +22,7 @@ Then("The error message {string} is displayed", (errorMessage) => {
   loginPage.elements.errorMessage().should("have.text", errorMessage);
 });
 Then("Item {string} contains {string} as source", (itemNumber,srcName) => {
-   var itemName = ('#item_'+itemNumber+'_img_link > .inventory_item_img')
+   let itemName = ('#item_'+itemNumber+'_img_link > .inventory_item_img')
    cy.get(itemName).should('have.attr', 'src', srcName);
 })
 Then("the user logs out", () =>{

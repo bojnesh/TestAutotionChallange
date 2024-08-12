@@ -59,7 +59,7 @@ class InventoryPage {
     }
 
     clickCheckoutLink (){
-        this.elements.clickCheckoutLink().click();
+        this.elements.checkoutLink().click();
     }
 }
 
